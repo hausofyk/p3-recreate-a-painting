@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>The Swan (Hilma af Klint)</title>
+	<style> 
+		@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+		#canvas{
+			position: relative;
+			margin: calc((100vh - 600px) / 2) auto;
+			width: 600px;
+			height: 600px;
+			border: 10px solid rgb(201, 153, 107);
+			background-color: rgb(201, 153, 107);
+			box-shadow: 0px 20px 30px lightgrey;
+		}
+		.rectangle{
+			position: absolute;
+			width: 600px;
+			height: 300px;
+			transform-origin: center;
+		}
+		#sky{
+			background-image: radial-gradient(
+			circle at bottom,
+			rgb(247, 254, 250) 50%, 
+			rgb(210, 200, 200)
+			);
+			bottom:300px;
+			z-index:1;
+		}
+		#ground{
+			background-image: radial-gradient(
+			circle at top,
+			rgb(28, 16, 10) 50%, 
+			rgb(50, 50, 55)
+			);
+			top:300px;
+			z-index:4;
+		}
+		.triangle1{
+			position: relative;
+			width: 0px;
+      		height: 0px;
+      		border-left: 90px solid transparent;
+      		border-right: 90px solid transparent;
+			border-top: 150px solid rgb(247, 249, 250);
+			z-index: 7;
+			top: 150px;
+			left:210px;
+		}
+		.triangle2{
+			position: relative;
+			width: 0px;
+      		height: 0px;
+      		border-left: 90px solid transparent;
+      		border-right: 90px solid transparent;
+			border-bottom: 150px solid rgb(35, 15, 15);
+			z-index: 7;
+			top: 150px;
+			left:210px;
+		}
+		.triangle1-1 {
+ 			 position: absolute;
+ 			 width: 200px;
+ 			 height: 168px;
+  				background-image: conic-gradient(
+    			from var(--startDeg, -180deg), 
+    			rgb(250, 172, 112),
+   			 	rgb(252, 199, 187), 
+				rgb(170, 201, 230)
+  				);
+  			clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  			z-index: 4;
+  			top: 145px;
+			left:200px;
+  		}
+		.triangle2-1{
+			position: absolute;
+			width: 200px;
+      		height: 168px;
+ 				background-image: conic-gradient(
+    			from var(--startDeg, 0deg), 
+    			rgb(39, 73, 105),
+   			 	rgb(99, 56, 46), 
+				rgb(143, 91, 39)
+  				);
+			clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+			z-index: 6;
+			top: 288px;
+			left:200px;
+		}
+		.bottom-circle{
+			position: absolute;
+			width: 320px;
+			height:310px;
+				background-image: radial-gradient(
+				ellipse at top,
+				rgb(171, 171, 171)10%,
+				rgb(150, 110, 69) 60%, 
+				rgb(70, 63, 45) 80%
+				);
+			border-radius: 50%;
+			clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+			z-index: 5;
+			top:145px;
+			left:138px;
+		}
+		.top-circle{
+			position: absolute;
+			width: 320px;
+			height: 310px;
+				background-image: radial-gradient(
+				ellipse at bottom,
+				rgb(247, 116, 116)25%,
+				rgb(247, 249, 250) 50%, 
+				rgb(223, 227, 230) 80%
+				);
+			border-radius: 50%;
+			clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+			z-index: 3;
+			top:145px;
+			left:138px;
+		}
+		.didact-gothic-regular {
+  			font-family: "Didact Gothic", sans-serif;
+ 			font-weight: 400;
+ 			font-style: normal;
+		}
+
+		@keyframes fx-marker {
+  			0%        { background-size: 0% 46%;   background-position: 0 62%; }
+  			38%, 62%  { background-size: 100% 46%; background-position: 0 62%; }
+  			100%      { background-size: 0% 46%;   background-position: 100% 62%; }
+		}
+		.fx-marker{
+			padding: .1em .2em;
+			background: linear-gradient(100deg,
+     			rgb(252, 199, 187) 85%, transparent,
+     			rgb(252, 199, 187) 60%, transparent
+    		);
+  			background-size: 0% 46%;
+  			background-repeat: no-repeat;
+  			transition: background-size 3s ease-in-out;
+		}
+		.fx-marker:hover{
+			animation: fx-marker 3s infinite;
+		}
+
+		h1, h2{
+			font-family: Arial;
+			position: relative;
+			text-align: center;
+		}
+		h1{
+			font-size: 30px;
+		}
+		h2{ 
+			font-size:25px;
+		}
+		a, a:hover, a:focus, a:active, a:visited {
+  			text-decoration: none;
+  			color: inherit;
+		}
+	</style>
+</head>
+
+<body>
+	<section id="canvas">
+		<div class="rectangle" id="sky"></div>
+		<div class="rectangle" id="ground"></div>
+		<div class="triangle1"></div>
+		<div class="triangle2"></div>
+		<div class="triangle1-1"></div>
+		<div class="triangle2-1"></div>
+		<div class="bottom-circle"></div>
+		<div class="top-circle"></div>
+	</section>
+		<h1 class="didact-gothic-regular"><span class="fx-marker"><a href="https://hilmaafklint.se/" target="_blank" rel="noopener noreferrer">Hilma af Klint</a></span></h1>
+		<h2 class="didact-gothic-regular">The Swan, No 13, The SUW Series, Group IX, Part 1</h2>
+		<h2 class="didact-gothic-regular">1915, Oil on canvas</h2>
+</body>
+</html>
